@@ -1,7 +1,12 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
+import { APP_CONFIG, loadCommonEnvironment } from '@mfe-issue/environment';
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
+Promise.all([loadCommonEnvironment()])
+  .then(([environment]) => {
+    platformBrowserDynamic([
+      { provide: APP_CONFIG, useValue: environment },
+    ]).bootstrapModule(AppModule);
+  })
+  .catch((error: unknown) => console.error(error));

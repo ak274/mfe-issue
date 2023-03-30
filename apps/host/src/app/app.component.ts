@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { APP_CONFIG, Config } from '@mfe-issue/environment';
 
 @Component({
   selector: 'mfe-issue-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: ` <ul class="remote-menu">
+      <li><a routerLink="/">Home</a></li>
+
+      <li><a routerLink="remote-one">RemoteOne</a></li>
+      <li><a routerLink="remote-two">RemoteTwo</a></li>
+    </ul>
+    <router-outlet></router-outlet>`,
 })
 export class AppComponent {
-  title = 'host';
+  constructor(@Inject(APP_CONFIG) private config: Config) {
+    console.log(config);
+  }
 }
