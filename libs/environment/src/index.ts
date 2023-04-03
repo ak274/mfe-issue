@@ -14,3 +14,6 @@ export async function loadCommonEnvironment(): Promise<Config> {
   const config = await getValue();
   return config;
 }
+
+export * from './lib/environment.module';
+export * from './lib/test/test.component';
