@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mfe-issue/environment": ["libs/environment/src/index.ts"]
+      "@mfe-issue/environment": ["libs/environment/src/index.ts"],
+      "@mfe-issue/ui-form": ["libs/ui-form/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
